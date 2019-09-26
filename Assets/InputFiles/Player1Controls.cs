@@ -263,12 +263,12 @@ public class Player1Controls : IInputActionCollection
         },
         {
             ""name"": ""Movement4"",
-            ""id"": ""75128908-056c-4dcf-b1c3-9c50c20dbfdf"",
+            ""id"": ""a9e3a38e-81ec-4d31-98a8-55dfa6a812e2"",
             ""actions"": [
                 {
                     ""name"": ""Movement"",
                     ""type"": ""Button"",
-                    ""id"": ""734c5fa6-ce0d-4390-b3f5-3aa7985efd0a"",
+                    ""id"": ""251344f7-ad91-4827-8ac5-3456aa1e8e48"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -276,7 +276,7 @@ public class Player1Controls : IInputActionCollection
                 {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
-                    ""id"": ""74f94981-7fbb-40a8-81ed-23a7aa804976"",
+                    ""id"": ""06865f96-1c4a-412d-baf8-7dc4eeb9ddfd"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -285,7 +285,7 @@ public class Player1Controls : IInputActionCollection
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""c5c03bc2-9574-4b12-9d6c-e738a5f707a9"",
+                    ""id"": ""39550e0f-37de-46fd-a1a8-1ae6b3040648"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -295,32 +295,10 @@ public class Player1Controls : IInputActionCollection
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""ca4188b5-1574-4a5e-889c-c065972b9fd4"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e0fa1ace-0a3f-4ca8-a73a-05253f64f36c"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""2D Vector"",
-                    ""id"": ""c05d33cc-3367-493c-a85c-9ea9a079ad03"",
+                    ""id"": ""ebeb6ae4-c6d4-4c34-87a4-9420d7dc5113"",
                     ""path"": ""2DVector"",
-                    ""interactions"": ""MultiTap"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Movement"",
@@ -329,7 +307,7 @@ public class Player1Controls : IInputActionCollection
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""e8a6553a-62a2-4fc9-9142-c266f7e2dfb0"",
+                    ""id"": ""4e627f76-d606-47d6-b750-01ca56dc09f6"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -340,7 +318,7 @@ public class Player1Controls : IInputActionCollection
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""5337200f-308d-4fab-90d4-5e83bb45a196"",
+                    ""id"": ""1f932574-fae4-4137-aeda-2e163307f3d6"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -351,7 +329,7 @@ public class Player1Controls : IInputActionCollection
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""ad6809cd-d804-4fd1-8762-6cdc2d5d5fbc"",
+                    ""id"": ""170298e8-b396-49a5-858a-58e88c0e37b9"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -362,7 +340,7 @@ public class Player1Controls : IInputActionCollection
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""1f16c76a-7823-4b2a-9941-44c4d867a9ff"",
+                    ""id"": ""49790724-743f-4b1e-bff0-780b63a3cd14"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -370,6 +348,28 @@ public class Player1Controls : IInputActionCollection
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64e488ac-e192-45c2-920a-b8531610cf5c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f9efb662-ee50-4bd5-b7fe-2d441becad49"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }

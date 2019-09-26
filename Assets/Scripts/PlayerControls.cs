@@ -15,7 +15,8 @@ public class PlayerControls : MonoBehaviour
 {
     Player1Controls controller;
     Rigidbody rg;
-
+    InputControl iC;
+    public InputDevice iDev;
     float move;
     bool isLanded = true;
 
@@ -23,14 +24,16 @@ public class PlayerControls : MonoBehaviour
     public float jumpForce = 10f;
     public float speed = 10f;
 
+    public InputControlList<InputControl> lt;
+
     private void Awake()
     {
         rg = GetComponent<Rigidbody>();
         controller = new Player1Controls();
-
         switch(Num)
         {
             case PlayerNum.Player1:
+
                 controller.Movement1.Movement.performed += ctx => move = ctx.ReadValue<Vector2>().x;
                 controller.Movement1.Movement.canceled += ctx => move = 0;
         
