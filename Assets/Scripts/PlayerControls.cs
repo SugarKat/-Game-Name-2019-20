@@ -14,9 +14,7 @@ public enum PlayerNum
 public class PlayerControls : MonoBehaviour
 {
     Player1Controls controller;
-    Rigidbody rg;
-    InputControl iC;
-    public InputDevice iDev;
+    Rigidbody2D rg;
     float move;
     bool isLanded = true;
 
@@ -24,11 +22,9 @@ public class PlayerControls : MonoBehaviour
     public float jumpForce = 10f;
     public float speed = 10f;
 
-    public InputControlList<InputControl> lt;
-
     private void Awake()
     {
-        rg = GetComponent<Rigidbody>();
+        rg = GetComponent<Rigidbody2D>();
         controller = new Player1Controls();
         switch(Num)
         {
@@ -65,19 +61,17 @@ public class PlayerControls : MonoBehaviour
     {
         Vector2 m = new Vector2(move, 0) * Time.deltaTime * speed;
 
-
-        rg.MovePosition(new Vector3(transform.position.x+m.x,transform.position.y+0));
-        //transform.Translate(m);
+        rg.velocity = new Vector2(m.x,rg.velocity.y);
     }
 
     void Jump()
     {
         if (!isLanded)
             return;
-        rg.AddForce(new Vector3(0f, jumpForce, 0f),ForceMode.Impulse);
+        rg.velocity = Vector2.up * jumpForce;
         isLanded = false;
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         isLanded = true;
     }
