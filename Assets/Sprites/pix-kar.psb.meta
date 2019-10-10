@@ -395,6 +395,7 @@ ScriptedImporter:
   importedTextureHeight: 32
   documentSize: {x: 13, y: 10}
   paperDollMode: 0
+  keepDupilcateSpriteName: 0
   spriteCategoryList:
     categories: []
   textureActualWidth: 32
@@ -462,6 +463,7 @@ ScriptedImporter:
       spriteId: 001ea488d1a0caf48b2b9b0690a4efc5
       bones: 0600000007000000000000000400000005000000030000000100000002000000
       parentGroup: 0
+      order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
   boneGOs:
@@ -484,4 +486,4 @@ ScriptedImporter:
   generateGOHierarchy: 0
   textureAssetName: pix-kar
   prefabAssetName: pix-kar_GO
-  spriteLibAssetName: 
+  spriteLibAssetName: pix-kar Sprite Lib
