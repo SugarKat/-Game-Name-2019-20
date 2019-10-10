@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 24801624}
   - component: {fileID: 24801623}
   - component: {fileID: 24801622}
+  - component: {fileID: 24801625}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -171,10 +172,10 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 46
   orthographic: 1
-  orthographic size: 5
-  m_Depth: -1
+  orthographic size: 3
+  m_Depth: -10
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -197,12 +198,30 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24801621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: -1, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &24801625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24801621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf02f0049a3f1147bbbe13349b99b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets:
+  - {fileID: 425011405}
+  - {fileID: 414062876}
+  smoothTime: 0.5
+  minZoom: 3
+  posZ: -10
 --- !u!1 &26669192
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,7 +671,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425011398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 1.36, z: 0}
+  m_LocalPosition: {x: -0.1, y: 1.36, z: 0}
   m_LocalScale: {x: 1, y: 2.198, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -975,7 +994,7 @@ Transform:
   m_GameObject: {fileID: 926197427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.23, y: -0.71, z: 0}
-  m_LocalScale: {x: 12.083, y: 1, z: 1}
+  m_LocalScale: {x: 52.083, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
