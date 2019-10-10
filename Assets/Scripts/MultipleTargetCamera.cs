@@ -8,7 +8,9 @@ public class MultipleTargetCamera : MonoBehaviour
     public List<Transform> targets;
 
     public float smoothTime = .5f;
+
     public float minZoom = 3f;
+
     public float posZ = -10f;
 
     private Vector3 Velocity;
