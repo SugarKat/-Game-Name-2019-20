@@ -7,21 +7,12 @@ public class MultipleTargetCamera : MonoBehaviour
 {
     public List<Transform> targets;
 
-    public Vector3 offset;
-
     public float smoothTime = .5f;
+    public float minZoom = 25f;
+    public float maxZoom = 5f;
+    public float zoomLimiter = 50f;
 
-    public float minZoom = 50f;
-
-    public float maxZoom = 20f;
-    public float minZ = -5f;
-    public float zoomLimiter = 20f;
-
-    //public float minZoom = 3f;
-    public float posZ = -10f;
-
-
-    private Vector3 Velocity;
+    private Vector2 Velocity;
     private Camera cam;
     void Start()
     {
@@ -36,32 +27,29 @@ public class MultipleTargetCamera : MonoBehaviour
     }
     void Zoom()
     {
-        float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimiter);
-
-        cam.orthographicSize = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
-        Vector3 pos = transform.position;
-        pos.z = -10;
-        if (cam.orthographicSize <= cam.orthographicSize)
-            cam.orthographicSize = GetGreatestDistance() + smoothTime + 10;
-
-        transform.position = pos;
+        //Vector3 pos = transform.position; Sitai galima padaryti naudojant offset Move funkcijoj
+        //pos.z = posZ;
+        float zoom = Mathf.Lerp(maxZoom,minZoom,GetGreatestDistance()/zoomLimiter);
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, zoom, Time.deltaTime);
+        //if (cam.orthographicSize <= minZoom)
+           // cam.orthographicSize = minZoom; Sitai nebutina kai naudoji Mathf.Lerp() nes jis uztikrina kad nebutu didesnis ar mazesnis
+        //transform.position = pos;
 
     }
     void Move()
     {
-
-        Vector3 centerPoint = GetCenterPoint();
-        Vector3 newPosition = centerPoint;
-        transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref Velocity, smoothTime);
+        //Vector3 centerPoint = GetCenterPoint(); Situ naudoti neverta nes galima tiesiog tiesiai i apskaiciavima
+        //Vector3 newPosition = centerPoint;
+        transform.position = Vector2.SmoothDamp(transform.position, GetCenterPoint(), ref Velocity, smoothTime);
     }
     float GetGreatestDistance()
-  {
-       var bounds = new Bounds(targets[0].position, Vector3.zero);
-       for (int i = 0; i < targets.Count; i++)
+    {
+        var bounds = new Bounds(targets[0].position, Vector3.zero);
+        for (int i = 0; i < targets.Count; i++)
         {
-           bounds.Encapsulate(targets[i].position);
-       }
-     return bounds.size.x;
+            bounds.Encapsulate(targets[i].position);
+        }
+        return Mathf.Sqrt(Mathf.Pow(bounds.size.x,2) + Mathf.Pow(bounds.size.y, 2)); // Sitai naudoju nes reikia ne horizontalaus atsumo o vektoriaus ilgio kuri dar ismoksit
     }
     Vector3 GetCenterPoint()
     {
@@ -76,5 +64,4 @@ public class MultipleTargetCamera : MonoBehaviour
         }
         return bounds.center;
     }
-
 }
