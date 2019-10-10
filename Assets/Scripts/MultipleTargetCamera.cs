@@ -10,29 +10,16 @@ public class MultipleTargetCamera : MonoBehaviour
     public Vector3 offset;
 
     public float smoothTime = .5f;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 7d87e73... Camera pakeista is Perspective i Orthographic
-=======
->>>>>>> parent of 7d87e73... Camera pakeista is Perspective i Orthographic
 
     public float minZoom = 50f;
 
     public float maxZoom = 20f;
     public float minZ = -5f;
     public float zoomLimiter = 20f;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    public float minZoom = 3f;
+
+    //public float minZoom = 3f;
     public float posZ = -10f;
->>>>>>> parent of 229c4fc... Camera
-=======
->>>>>>> parent of 7d87e73... Camera pakeista is Perspective i Orthographic
-=======
->>>>>>> parent of 7d87e73... Camera pakeista is Perspective i Orthographic
+
 
     private Vector3 Velocity;
     private Camera cam;
@@ -50,25 +37,13 @@ public class MultipleTargetCamera : MonoBehaviour
     void Zoom()
     {
         float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimiter);
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         cam.orthographicSize = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
         Vector3 pos = transform.position;
         pos.z = -10;
         if (cam.orthographicSize <= cam.orthographicSize)
             cam.orthographicSize = GetGreatestDistance() + smoothTime + 10;
-=======
-=======
->>>>>>> parent of 7d87e73... Camera pakeista is Perspective i Orthographic
-        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
-        Vector3 pos = transform.position;
-        pos.z = -25;
-        if (cam.fieldOfView <= cam.fieldOfView)
-            cam.fieldOfView = GetGreatestDistance() + smoothTime + 10;
-<<<<<<< HEAD
->>>>>>> parent of 7d87e73... Camera pakeista is Perspective i Orthographic
-=======
->>>>>>> parent of 7d87e73... Camera pakeista is Perspective i Orthographic
+
         transform.position = pos;
 
     }
