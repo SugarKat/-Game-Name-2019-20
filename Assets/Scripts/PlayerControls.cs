@@ -24,6 +24,7 @@ public class PlayerControls : MonoBehaviour
     private void Awake()
     {
         rg = GetComponent<Rigidbody2D>();
+        GameManager.instance.SetPL(GetComponent<PlayerInput>());
     }
 
     private void Update()
