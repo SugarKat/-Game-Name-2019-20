@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
 
     void OnJump(InputValue val)
     {
+        if (controlledCh == null)
+            return;
         controlledCh.Jump();
     }
     

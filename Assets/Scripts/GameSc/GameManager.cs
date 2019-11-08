@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     public UIUpdate UIupdate;
 
-    //[HideInInspector]
+    [HideInInspector]
     public List<Player> joinedPlayers;
 
     Spawner spw;
@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         joinedPlayers.Add(_pl);
         UIupdate.Invoke(joinedPlayers.Count);
+        _pl.name = "Player" + joinedPlayers.Count.ToString();
         if(joinedPlayers.Count >= 3)
             return true;
         return false;
@@ -51,5 +52,9 @@ public class GameManager : MonoBehaviour
     {
         joinedPlayers.Remove(_pl);
         UIupdate.Invoke(joinedPlayers.Count);
+        for (int i = 0; i < joinedPlayers.Count; i++) 
+        {
+            joinedPlayers[i].name = "Player " + 1;
+        }
     }
 }

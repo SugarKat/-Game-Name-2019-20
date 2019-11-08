@@ -25,7 +25,6 @@ public class ChController : MonoBehaviour
         if (!isLanded)
             return;
         rg.velocity = Vector2.up * jumpForce;
-        Debug.Log(Vector2.up * jumpForce);
         isLanded = false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
