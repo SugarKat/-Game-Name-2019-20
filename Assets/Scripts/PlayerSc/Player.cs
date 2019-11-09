@@ -42,4 +42,8 @@ public class Player : MonoBehaviour
         controlledCh.Jump();
     }
     
+    public Transform ControlledObject()
+    {
+        return controlledCh.transform;
+    }
 }

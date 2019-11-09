@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ChController : MonoBehaviour
 {
-    Rigidbody2D rg;
+    [HideInInspector]
+    public Rigidbody2D rg;
     bool isLanded = true;
 
     public float jumpForce = 10f;
@@ -19,6 +20,10 @@ public class ChController : MonoBehaviour
     public void Move(float _move)
     {
         rg.velocity = new Vector2(_move*speed, rg.velocity.y);
+        if (rg.velocity.x < -0.01f)
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        else if (rg.velocity.x > 0.01f)
+            transform.localScale = new Vector3(1f, 1f, 1f);
     }
     public void Jump()
     {

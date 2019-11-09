@@ -14,9 +14,14 @@ public class MultipleTargetCamera : MonoBehaviour
 
     private Vector2 Velocity;
     private Camera cam;
+
     void Start()
     {
         cam = GetComponent<Camera>();
+        for (int i = 0; i < GameManager.instance.joinedPlayers.Count; i++)
+        {
+            targets.Add(GameManager.instance.joinedPlayers[i].ControlledObject());
+        }
     }
     void LateUpdate()
     {
