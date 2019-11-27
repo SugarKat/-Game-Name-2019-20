@@ -8,13 +8,15 @@ public class ChController : MonoBehaviour
     public Rigidbody2D rg;
     bool isLanded = true;
 
+    public delegate void AttackAction();
+    public AttackAction att;
+
     public float jumpForce = 10f;
     public float speed = 10f;
 
     private void Start()
     {
         rg = GetComponent<Rigidbody2D>();
-
     }
 
     public void Move(float _move)
@@ -31,6 +33,13 @@ public class ChController : MonoBehaviour
             return;
         rg.velocity = Vector2.up * jumpForce;
         isLanded = false;
+    }
+    public void Attack()
+    {
+        //TODO:
+        //Start attack animation and action
+        Debug.Log("attack not animating if this here");
+        att.Invoke();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

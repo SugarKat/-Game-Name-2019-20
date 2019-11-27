@@ -68,6 +68,8 @@ public class EnemyAI_Movement : MonoBehaviour
             Debug.Log("Jumping");
             ch.Jump();
         }
+
+
         if (Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]) < minDist)
         {
             currentWaypoint++;

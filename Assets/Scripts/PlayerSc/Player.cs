@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     float move;
     GameObject selectedCharacter;
+    [SerializeField]
     ChController controlledCh;
 
     //[HideInInspector]
@@ -42,6 +43,11 @@ public class Player : MonoBehaviour
         controlledCh.Jump();
     }
     
+    void OnAttack()
+    {
+        controlledCh.Attack();
+    }
+
     public Transform ControlledObject()
     {
         return controlledCh.transform;

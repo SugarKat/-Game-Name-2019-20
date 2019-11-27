@@ -9,6 +9,10 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
+        if(GameManager.instance == null)
+        {
+            Debug.LogWarning("GAME NOT STARTED FROM INTENDED PLACE LAUNCH FROM DIFRENT SCENE");
+        }
         GameManager.instance.SetSpawner(this);
     }
 
