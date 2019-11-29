@@ -31,7 +31,8 @@ public class ChController : MonoBehaviour
     {
         if (!isLanded)
             return;
-        rg.velocity = Vector2.up * jumpForce;
+        Vector2 force = new Vector2(rg.velocity.x,jumpForce);
+        rg.velocity = force;
         isLanded = false;
     }
     public void Attack()

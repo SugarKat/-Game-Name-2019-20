@@ -28,7 +28,7 @@ public class EnemyAI_Movement : MonoBehaviour
     void UpdatePath()
     {   
         //Atnaujina kelia tik tuo metu jeigu tikslas pajudejo daugiau negu leidziama, kad neapkrauti proceso, arba yra nevietoje bet per mazai juda
-        if(Vector3.Distance(oldTargetPos,target.position)>=1f || (Vector2.Distance(transform.position,target.position) > minDist && ch.rg.velocity.magnitude < .2f)) 
+        if(Vector3.Distance(oldTargetPos,target.position)>=1f || (Vector2.Distance(transform.position,target.position) > minDist && ch.rg.velocity.x < .2f)) 
         {
             seeker.StartPath(transform.position, target.position, OnPathComplete);
             oldTargetPos = target.position;
