@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[AddComponentMenu("PlayerBehavior/PlayerInfo")]
 public class Player : MonoBehaviour
 {
     float move;

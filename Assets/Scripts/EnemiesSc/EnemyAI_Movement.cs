@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 using Pathfinding;
+using Pathfinding.Util;
 
+[AddComponentMenu("EnemyBehavior/AiMovement")]
 [RequireComponent(typeof(ChController))]
 [RequireComponent(typeof(Seeker))]
 public class EnemyAI_Movement : MonoBehaviour
@@ -10,6 +12,8 @@ public class EnemyAI_Movement : MonoBehaviour
     ChController ch;
     Seeker seeker;
     Vector3 oldTargetPos = Vector3.zero;
+
+    protected PathInterpolator interpolator = new PathInterpolator();
 
     public Transform target;
     public float minDist = .5f;
@@ -41,6 +45,10 @@ public class EnemyAI_Movement : MonoBehaviour
         {
             path = _path;
             currentWaypoint = 0;
+
+            if (path.vectorPath.Count == 1) path.vectorPath.Add(path.vectorPath[0]);
+            interpolator.SetPath(path.vectorPath);
+
         }
     }
 
@@ -65,7 +73,6 @@ public class EnemyAI_Movement : MonoBehaviour
         ch.Move(dir.x * Time.deltaTime);
         if(path.vectorPath[currentWaypoint].y > transform.position.y+.75f)// Patikrina ar reikia sokti kad pasiekti tiksla ar ne
         {
-            Debug.Log("Jumping");
             ch.Jump();
         }
 

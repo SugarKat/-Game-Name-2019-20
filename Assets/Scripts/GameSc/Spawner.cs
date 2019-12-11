@@ -5,26 +5,27 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     int spID = 0;
-    public List<Transform> spawnPoints;
+    public List<Transform> PlspawnPoints;
+    public List<Transform> EnspawnPoints;
 
     private void Awake()
     {
         if(GameManager.instance == null)
         {
-            Debug.LogWarning("GAME NOT STARTED FROM INTENDED PLACE LAUNCH FROM DIFRENT SCENE");
+            Debug.LogWarning("GAME NOT STARTED FROM INTENDED PLACE, LAUNCH FROM DIFRENT SCENE");
         }
         GameManager.instance.SetSpawner(this);
     }
 
     public void InstantiatePlayer(Player _pl)
     {
-        _pl.SetControlledCh(Instantiate(_pl.selectedCh.prefab,spawnPoints[spID].position,Quaternion.identity));
+        _pl.SetControlledCh(Instantiate(_pl.selectedCh.prefab,PlspawnPoints[spID].position,Quaternion.identity));
         SetOtherPoint();
     }
     
     void SetOtherPoint()
     {
-        if (spID >= spawnPoints.Count)
+        if (spID >= PlspawnPoints.Count)
         {
             spID = 0;
         }

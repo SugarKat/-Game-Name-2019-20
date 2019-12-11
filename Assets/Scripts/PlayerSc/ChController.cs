@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[AddComponentMenu("PlayerBehavior/Controller")]
 public class ChController : MonoBehaviour
 {
     [HideInInspector]
