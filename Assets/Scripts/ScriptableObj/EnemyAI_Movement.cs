@@ -4,12 +4,12 @@ using Pathfinding;
 using Pathfinding.Util;
 
 [AddComponentMenu("EnemyBehavior/AiMovement")]
-[RequireComponent(typeof(ChController))]
+[RequireComponent(typeof(EnController))]
 [RequireComponent(typeof(Seeker))]
 public class EnemyAI_Movement : MonoBehaviour
 {
     Path path;
-    ChController ch;
+    EnController ch;
     Seeker seeker;
     Vector3 oldTargetPos = Vector3.zero;
     Transform target;
@@ -25,7 +25,7 @@ public class EnemyAI_Movement : MonoBehaviour
 
     private void Awake()
     {
-        ch = GetComponent<ChController>();
+        ch = GetComponent<EnController>();
         seeker = GetComponent<Seeker>();
         InvokeRepeating("UpdatePath",0f,1f/pathUpdateRate);
     }
@@ -70,15 +70,15 @@ public class EnemyAI_Movement : MonoBehaviour
             reachedDestination = false;
         }
         
-        Vector2 dir = ((Vector2)(path.vectorPath[currentWaypoint] - transform.position)).normalized; //Grazina krypti i kuria puse reikia judeti
-        ch.Move(dir.x * Time.deltaTime);
-        if(path.vectorPath[currentWaypoint].y > transform.position.y+.75f)// Patikrina ar reikia sokti kad pasiekti tiksla ar ne
-        {
-            ch.Jump();
-        }
+        Vector2 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized; //Grazina krypti i kuria puse reikia judeti
+        ch.Move(dir);
+        //if(path.vectorPath[currentWaypoint].y > transform.position.y+.75f)// Patikrina ar reikia sokti kad pasiekti tiksla ar ne
+        //{
+        //    ch.Jump();
+        //}
 
 
-        if (Mathf.Abs(transform.position.x - path.vectorPath[currentWaypoint].x) < minDist)
+        if (Vector2.Distance(transform.position,path.vectorPath[currentWaypoint]) < minDist)
         {
             currentWaypoint++;
         }
