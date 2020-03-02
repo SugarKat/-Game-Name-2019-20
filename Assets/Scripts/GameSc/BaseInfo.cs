@@ -23,6 +23,7 @@ public class BaseInfo : MonoBehaviour
                 return;
             }
             health.health -= collision.GetComponent<EnemyInfo>().baseDamage;
+            Destroy(collision.gameObject,.5f);
             healthDisplay.value = (float)health.health / health.startingHealth;
         }
     }

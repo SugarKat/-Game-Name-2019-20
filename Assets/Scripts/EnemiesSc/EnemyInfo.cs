@@ -15,5 +15,14 @@ public class EnemyInfo : MonoBehaviour
     {
         currentHealth = startingHealth;
     }
+    public void TakeDamage(int dmg)
+    {
+        currentHealth -= dmg;
 
+        if(currentHealth <= 0)
+        {
+            Debug.Log("enemy died");
+            Destroy(gameObject);
+        }
+    }
 }

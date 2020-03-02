@@ -12,10 +12,11 @@ public class EnemyAI_Movement : MonoBehaviour
     ChController ch;
     Seeker seeker;
     Vector3 oldTargetPos = Vector3.zero;
+    Transform target;
 
     protected PathInterpolator interpolator = new PathInterpolator();
 
-    public Transform target;
+    public bool ground = false;
     public float minDist = .5f;
     public float pathUpdateRate = .5f;
 
@@ -77,9 +78,13 @@ public class EnemyAI_Movement : MonoBehaviour
         }
 
 
-        if (Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]) < minDist)
+        if (Mathf.Abs(transform.position.x - path.vectorPath[currentWaypoint].x) < minDist)
         {
             currentWaypoint++;
         }
+    }
+    public void SetTarget(Transform _target)
+    {
+        target = _target;
     }
 }
